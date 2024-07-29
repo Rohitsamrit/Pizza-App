@@ -24,9 +24,15 @@ app.use(express.json());
 app.use(morgan("dev"));
 
 //route
-app.use("/api/v1/user", require("./routes/userRoutes"));
-app.use("/api/v1/pizza", require("./routes/pizzaRoutes"));
-app.use("/api/v1/order", orderRoutes);
+app.use(
+  "https://pizza-app-3-pwf5.onrender.com/api/v1/user",
+  require("./routes/userRoutes")
+);
+app.use(
+  "https://pizza-app-3-pwf5.onrender.com/api/v1/pizza/",
+  require("./routes/pizzaRoutes")
+);
+app.use("https://pizza-app-3-pwf5.onrender.com/api/v1/order", orderRoutes);
 app.get("/", (req, res) => {
   res.json({
     message: "API RUNNING",
